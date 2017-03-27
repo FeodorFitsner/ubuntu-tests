@@ -1,0 +1,25 @@
+image: ubuntu
+
+environment:
+  myvar1: Hello, world!
+  ANOTHER_VAR: Test!!!
+
+install:
+- sh: sw_vers
+- echo "Should be run on both Windows and Mac"
+- sh: ENV
+- batch: should be skipped by both platforms
+- ps: 'gci env:'
+- ls
+- sh: ls $HOME
+- sh: echo "This is Bash script!"
+- npm --version
+- ps: 'Write-Host "This is run on Windows only: $env:USERPROFILE"'
+- cmd: 'echo This run on Windows too: %USERPROFILE%'
+#- sh: appveyor PackageArtifacts
+#- sh: appveyor PushArtifact readme.md --fileName readme.md
+- sh: appveyor PushArtifact --path '**/*.md'
+
+build: off
+
+test: off
