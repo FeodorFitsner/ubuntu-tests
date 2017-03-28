@@ -18,7 +18,7 @@ install:
 - cmd: 'echo This run on Windows too: %USERPROFILE%'
 #- sh: appveyor PackageArtifacts
 #- sh: appveyor PushArtifact readme.md --fileName readme.md
-- sh: appveyor PushArtifact --path '**/*.md'
+#- sh: appveyor PushArtifact --path '**/*.md'
 
 build: off
 
