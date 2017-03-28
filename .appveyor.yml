@@ -5,7 +5,7 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
-#- sh: sw_vers
+- sh: lsb_release -a
 - echo "Should be run on both Windows and Mac"
 #- sh: ENV
 - batch: should be skipped by both platforms
