@@ -7,7 +7,7 @@ environment:
 install:
 - sh: lsb_release -a
 - sh: printenv
-- sh: powershell ./test.ps1
+#- sh: powershell ./test.ps1
 - appveyor PushArtifact test.txt
 - echo "Should be run on both Windows and Mac"
 #- sh: ENV
