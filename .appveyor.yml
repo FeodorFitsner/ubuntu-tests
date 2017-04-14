@@ -5,6 +5,7 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
+- sh: appveyor UpdateBuild --version "1.2.${appveyor_build_number}"
 - ps: |
     Write-Host "Setting 'aaa' variable in one script"
     $env:aaa = 'Hello, World!'
