@@ -1,5 +1,7 @@
 image: ubuntu
 
+shallow_clone: true
+
 environment:
   myvar1: Hello, world!
   ANOTHER_VAR: Test!!!
