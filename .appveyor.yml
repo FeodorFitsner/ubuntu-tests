@@ -13,8 +13,6 @@ install:
     $env:aaa = 'Hello, World!'
 
 - sh: whoami
-- sh: chmod +x test.js
-- sh: sudo test.js
 - sh: lsb_release -a
 - sh: printenv
 #- sh: powershell ./test.ps1
