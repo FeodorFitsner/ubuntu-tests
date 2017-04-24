@@ -15,6 +15,8 @@ install:
 - sh: whoami
 - sh: lsb_release -a
 - sh: printenv
+- sh: touch /tmp/tmp-1
+- ls /tmp/ -al
 #- sh: powershell ./test.ps1
 - appveyor PushArtifact test.txt
 - echo "Should be run on both Windows and Mac"
