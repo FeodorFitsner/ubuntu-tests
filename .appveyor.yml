@@ -12,6 +12,7 @@ install:
     Write-Host "Setting 'aaa' variable in one script"
     $env:aaa = 'Hello, World!'
 
+- sh: whoami
 - sh: lsb_release -a
 - sh: printenv
 #- sh: powershell ./test.ps1
