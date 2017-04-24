@@ -33,6 +33,7 @@ install:
 #- sh: appveyor PackageArtifacts
 #- sh: appveyor PushArtifact readme.md --fileName readme.md
 #- sh: appveyor PushArtifact --path '**/*.md'
+- ls /tmp/ -al
 
 build: off
 
