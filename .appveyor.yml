@@ -9,7 +9,7 @@ environment:
 install:
 - sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: ls /tmp -al
-- sh: cat /tmp/tmp-*
+- sh: ls
 - ps: |
     Write-Host "Setting 'aaa' variable in one script"
     $env:aaa = 'Hello, World!'
