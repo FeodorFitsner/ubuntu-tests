@@ -52,5 +52,6 @@ function Push-AppveyorArtifact() {
     $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/artifacts -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 }
 
+pwd
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
 Push-AppveyorArtifact test.js
