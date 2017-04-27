@@ -5,11 +5,11 @@ function Update-AppveyorBuild() {
         [string]$Version
     )
     
-    $headers = {
+    $headers = @{
       "Content-type" = "application/json"
     }
     
-    $body = {
+    $body = @{
       "version" = $Version
     }
     
