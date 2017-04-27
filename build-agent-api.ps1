@@ -1,5 +1,3 @@
-$progressPreference = 'silentlyContinue'
-
 function Update-AppveyorBuild() {
     [CmdletBinding()] 
     Param( 
