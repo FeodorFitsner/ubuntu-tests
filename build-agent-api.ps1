@@ -36,7 +36,7 @@ function Push-AppveyorArtifact() {
         $Verbosity = 'Normal'
     )
 
-    $fullPath = (Resolve-Path $Path).Path
+    #$fullPath = (Resolve-Path $Path).Path
     
     $headers = @{
       "Content-type" = "application/json"
@@ -44,7 +44,7 @@ function Push-AppveyorArtifact() {
     
     $body = @{
       "cwd" = (pwd).Path
-      "path" = $fullPath
+      "path" = $Path
       "fileName" = $FileName
       "name" = $DeploymentName
       "type" = $Type
