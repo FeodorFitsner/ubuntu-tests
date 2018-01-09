@@ -11,6 +11,7 @@ install:
 - sh: ls /tmp -al
 - sh: ls -al
 - sh: echo -e "Default \033[42mGreen"
+- echo Hi there! This is white text on green background!
 - ps: |
     Write-Host "Setting 'aaa' variable in one script"
     $env:aaa = 'Hello, World!'
