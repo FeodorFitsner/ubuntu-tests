@@ -45,7 +45,9 @@ install:
 #- rm /tmp/tmp-*
 #- ls /tmp/ -al
 - ps: ./build-agent-api.ps1
+- appveyor SetVariable --name="bash_var_2" --value="surprise"
 - echo ${test_variable_1}
+- echo ${bash_var_2}
 
 build: off
 
