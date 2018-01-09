@@ -44,6 +44,7 @@ install:
 - stat /tmp
 - rm /tmp/tmp-*
 - ls /tmp/ -al
+- ps: ./build-agent-api.ps1
 
 build: off
 
