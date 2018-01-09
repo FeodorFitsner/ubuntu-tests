@@ -96,3 +96,4 @@ function Push-AppveyorArtifact() {
 
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
 Push-AppveyorArtifact test.js
+Set-AppveyorBuildVariable -Name test_variable_1 -Value 'Hi there, variable!'
