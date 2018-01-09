@@ -94,6 +94,11 @@ function Push-AppveyorArtifact() {
     WaitAsyncResult $respBody.lockPath
 }
 
+Write-Host "Testing Update-AppveyorBuild..."
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
+
+Write-Host "Testing Push-AppveyorArtifact..."
 Push-AppveyorArtifact test.js
+
+Write-Host "Testing Set-AppveyorBuildVariable..."
 Set-AppveyorBuildVariable -Name test_variable_1 -Value 'Hi there, variable!'
