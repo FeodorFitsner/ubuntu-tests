@@ -45,6 +45,7 @@ install:
 #- rm /tmp/tmp-*
 #- ls /tmp/ -al
 - ps: ./build-agent-api.ps1
+- echo $test_variable_1
 
 build: off
 
