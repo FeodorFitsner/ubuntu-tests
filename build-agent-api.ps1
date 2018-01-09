@@ -94,6 +94,74 @@ function Push-AppveyorArtifact() {
     WaitAsyncResult $respBody.lockPath
 }
 
+function Add-AppveyorMessage
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Message,
+
+        [Parameter(Mandatory=$false)]
+        $Category = $null,
+
+        [Parameter(Mandatory=$false)]
+        $Details = $null
+    )
+
+    $body = @{
+      "message" = $Message
+      "category" = $Category
+      "details" = $Details
+    }
+    
+    $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/messages -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
+function Add-AppveyorCompilationMessage
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Message,
+
+        [Parameter(Mandatory=$false)]
+        $Category = $null,
+
+        [Parameter(Mandatory=$false)]
+        $Details = $null,
+
+        [Parameter(Mandatory=$false)]
+        $FileName = $null,
+
+        [Parameter(Mandatory=$false)]
+        [int]$Line = $null,
+
+        [Parameter(Mandatory=$false)]
+        [int]$Column = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ProjectName = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ProjectFileName = $null
+    )
+
+    $body = @{
+      "message" = $Message
+      "category" = $Category
+      "details" = $Details
+      "fileName" = $FileName
+      "line" = $Line
+      "column" = $Column
+      "projectName" = $ProjectName
+      "projectFileName" = $ProjectFileName
+    }
+    
+    $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/compilationmessages -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
 Write-Host "Testing Update-AppveyorBuild..."
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
 
@@ -102,3 +170,9 @@ Push-AppveyorArtifact test.js
 
 Write-Host "Testing Set-AppveyorBuildVariable..."
 Set-AppveyorBuildVariable -Name test_variable_1 -Value 'Hi there, variable!'
+
+Write-Host "Testing Add-AppveyorMessage..."
+Add-AppveyorMessage -Message 'test message 1' -category 'Warning' -details "This is some details!"
+
+Write-Host "Testing Add-AppveyorCompilationMessage..."
+Add-AppveyorCompilationMessage -Message 'test message 1' -category 'Warning' -details "This is some details!" -Line 10 -Column 1
