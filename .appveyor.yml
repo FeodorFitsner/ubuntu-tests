@@ -10,6 +10,7 @@ install:
 - sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: ls /tmp -al
 - sh: ls -al
+- sh: echo -e "Default \e[42mGreen"
 - ps: |
     Write-Host "Setting 'aaa' variable in one script"
     $env:aaa = 'Hello, World!'
