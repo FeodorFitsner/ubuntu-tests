@@ -31,6 +31,30 @@ function Update-AppveyorBuild() {
     $response = Invoke-WebRequest -Method PUT -Uri $env:APPVEYOR_API_URL/api/build -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 }
 
+function Set-AppveyorBuildVariable
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Name,
+
+        [Parameter(Position=1, Mandatory=$true)]
+        $Value
+    )
+
+    $headers = @{
+      "Content-type" = "application/json"
+    }
+    
+    $body = @{
+      "name" = $Name
+      "value" = $Value
+    }
+    
+    $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/variables -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
 function Push-AppveyorArtifact() {
     [CmdletBinding()]
     param
