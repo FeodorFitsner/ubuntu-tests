@@ -8,6 +8,7 @@ environment:
 
 install:
 - sh: appveyor --version
+- sh: appveyor version
 - sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: ls /tmp -al
 - sh: ls -al
