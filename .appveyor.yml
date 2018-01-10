@@ -36,6 +36,8 @@ install:
 #- sh: ls $HOME
 #- sh: echo "This is Bash script!"
 - npm --version
+- sh: appveyor AddTest --Name "Test Bash A" -Framework "NUnit" --FileName "Assembly1.dll" --Outcome "Running"
+- sh: appveyor UpdateTest --Name "Test Bash A" --FileName "Assembly1.dll" --Outcome "Passed" --Duration 1200 --StdOut "This is StdOut" --StdErr "This is StdErr"
 #- ps: 'Write-Host "This is run on Windows only: $env:USERPROFILE"'
 #- cmd: 'echo This run on Windows too: %USERPROFILE%'
 #- sh: appveyor PackageArtifacts
