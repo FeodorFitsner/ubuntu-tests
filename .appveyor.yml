@@ -7,6 +7,7 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
+- sh: appveyor --version
 - sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: ls /tmp -al
 - sh: ls -al
@@ -36,8 +37,8 @@ install:
 #- sh: ls $HOME
 #- sh: echo "This is Bash script!"
 - npm --version
-- sh: appveyor AddTest --Name "Test Bash A" -Framework "NUnit" --FileName "Assembly1.dll" --Outcome "Running"
-- sh: appveyor UpdateTest --Name "Test Bash A" --FileName "Assembly1.dll" --Outcome "Passed" --Duration 1200 --StdOut "This is StdOut" --StdErr "This is StdErr"
+- sh: appveyor AddTest --name "Test Bash A" -framework "NUnit" --fileName "Assembly1.dll" --outcome "Running"
+- sh: appveyor UpdateTest --name "Test Bash A" --fileName "Assembly1.dll" --outcome "Passed" --duration 1200 --stdOut "This is StdOut" --stdErr "This is StdErr"
 #- ps: 'Write-Host "This is run on Windows only: $env:USERPROFILE"'
 #- cmd: 'echo This run on Windows too: %USERPROFILE%'
 #- sh: appveyor PackageArtifacts
