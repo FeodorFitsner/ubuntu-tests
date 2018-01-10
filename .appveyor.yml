@@ -47,7 +47,7 @@ install:
 - sh: appveyor AddMessage --message 'test message from bash 1' --category 'Error' --details "This is some details!"
 - sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
 - ps: ./build-agent-api.ps1
-- appveyor SetVariable -name="bash_var_2" --value="surprise"
+- appveyor SetVariable --value="surprise"
 - echo ${test_variable_1}
 - echo ${bash_var_2}
 
