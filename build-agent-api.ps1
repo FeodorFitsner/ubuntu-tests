@@ -273,3 +273,11 @@ Add-AppveyorMessage -Message 'test message 1' -category 'Warning' -details "This
 
 Write-Host "Testing Add-AppveyorCompilationMessage..."
 Add-AppveyorCompilationMessage -Message 'test message 1' -category 'Warning' -details "This is some details!" -Line 10 -Column 1
+
+Write-Host "Testing Add-AppveyorTest..."
+Add-AppveyorTest -Name "Test A" -Framework "NUnit" -FileName "Assembly1.dll"
+
+Write-Host "Testing Update-AppveyorTest..."
+Start-Sleep -s 4
+Update-AppveyorTest -Name "Test A" -Outcome "Passed" -Duration 1200 -StdOut "This is StdOut" -StdErr "This is StdErr"
+
