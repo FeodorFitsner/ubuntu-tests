@@ -162,6 +162,103 @@ function Add-AppveyorCompilationMessage
     $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/compilationmessages -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 }
 
+function Add-AppveyorTest
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Name,
+
+        [Parameter(Mandatory=$false)]
+        $Framework = $null,
+
+        [Parameter(Mandatory=$false)]
+        $FileName = $null,
+
+        [Parameter(Mandatory=$false)]
+        $Outcome = $null,
+
+        [Parameter(Mandatory=$false)]
+        [long]$Duration = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ErrorMessage = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ErrorStackTrace = $null,
+
+        [Parameter(Mandatory=$false)]
+        $StdOut = $null,
+
+        [Parameter(Mandatory=$false)]
+        $StdErr = $null
+    )
+
+    $body = @{
+      "name" = $Name
+      "framework" = $Framework
+      "fileName" = $FileName
+      "outcome" = $Outcome
+      "duration" = $Duration
+      "errorMessage" = $ErrorMessage
+      "errorStackTrace" = $ErrorStackTrace
+      "stdOut" = $StdOut
+      "stdErr" = $StdErr      
+    }
+    
+    $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/tests -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
+
+function Update-AppveyorTest
+{
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Position=0, Mandatory=$true)]
+        $Name,
+
+        [Parameter(Mandatory=$false)]
+        $Framework = $null,
+
+        [Parameter(Mandatory=$false)]
+        $FileName = $null,
+
+        [Parameter(Mandatory=$false)]
+        $Outcome = $null,
+
+        [Parameter(Mandatory=$false)]
+        [long]$Duration = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ErrorMessage = $null,
+
+        [Parameter(Mandatory=$false)]
+        $ErrorStackTrace = $null,
+
+        [Parameter(Mandatory=$false)]
+        $StdOut = $null,
+
+        [Parameter(Mandatory=$false)]
+        $StdErr = $null
+    )
+
+    $body = @{
+      "name" = $Name
+      "framework" = $Framework
+      "fileName" = $FileName
+      "outcome" = $Outcome
+      "duration" = $Duration
+      "errorMessage" = $ErrorMessage
+      "errorStackTrace" = $ErrorStackTrace
+      "stdOut" = $StdOut
+      "stdErr" = $StdErr      
+    }
+    
+    $response = Invoke-WebRequest -Method PUT -Uri $env:APPVEYOR_API_URL/api/tests -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
 Write-Host "Testing Update-AppveyorBuild..."
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
 
