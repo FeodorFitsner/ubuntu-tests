@@ -9,9 +9,10 @@ environment:
 install:
 - sh: appveyor --version
 - sh: appveyor version
-#- sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
+
 - sh: ls /tmp -al
 - sh: ls -al
+- sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: echo -e "Default \033[42mGreen"
 - echo Hi there! This is white text on green background!
 - sh: echo -e "Default \e[49mDefault"
