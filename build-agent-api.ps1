@@ -259,6 +259,52 @@ function Update-AppveyorTest
     $response = Invoke-WebRequest -Method PUT -Uri $env:APPVEYOR_API_URL/api/tests -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 }
 
+function Add-AppveyorTestsTest
+{
+    $body = @(
+        @{
+          "name" = 'Test Batch A'
+          "framework" = 'NUnit'
+          "fileName" = 'FileName1.dll'
+          "outcome" = 'Running'     
+        },
+        @{
+          "name" = 'Test Batch B'
+          "framework" = 'NUnit'
+          "fileName" = 'FileName1.dll'
+          "outcome" = 'Running'
+        }
+    )
+    
+    $response = Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/tests/batch -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
+function Update-AppveyorTestsTest
+{
+    $body = @(
+        @{
+          "name" = 'Test Batch A'
+          "framework" = 'NUnit'
+          "fileName" = 'FileName1.dll'
+          "outcome" = 'Passed'
+          "duration" = 12000
+          "errorMessage" = 'Error message'
+          "errorStackTrace" = 'Stack Trace!'
+          "stdOut" = 'StdOut!'
+          "stdErr" = 'StdErr!'     
+        },
+        @{
+          "name" = 'Test Batch B'
+          "framework" = 'NUnit'
+          "fileName" = 'FileName1.dll'
+          "outcome" = 'Failed'
+          "duration" = 120
+        }
+    )
+    
+    $response = Invoke-WebRequest -Method PUT -Uri $env:APPVEYOR_API_URL/api/tests/batch -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+}
+
 Write-Host "Testing Update-AppveyorBuild..."
 Update-AppveyorBuild -Version 1.2.$env:APPVEYOR_BUILD_NUMBER-abc
 
@@ -281,3 +327,8 @@ Write-Host "Testing Update-AppveyorTest..."
 Start-Sleep -s 4
 Update-AppveyorTest -Name "Test A" -FileName "Assembly1.dll" -Outcome "Passed" -Duration 1200 -StdOut "This is StdOut" -StdErr "This is StdErr"
 
+Write-Host "Testing Add-AppveyorTestsTest..."
+Add-AppveyorTestsTest
+
+Write-Host "Testing Update-AppveyorTestsTest..."
+Update-AppveyorTestsTest
