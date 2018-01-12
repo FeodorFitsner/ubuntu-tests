@@ -1,3 +1,6 @@
+#!/usr/bin/env pwsh
+#requires -version 6
+
 function WaitAsyncResult($lockPath) {
     while($true) {
         if(Test-Path $lockPath) {
