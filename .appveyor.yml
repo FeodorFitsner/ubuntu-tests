@@ -10,7 +10,7 @@ install:
 - sh: appveyor --version
 - sh: appveyor version
 
-- sh: ls /tmp -al
+#- sh: ls /tmp -al
 - sh: ls -al
 - sh: appveyor UpdateBuild --version "1.2.${APPVEYOR_BUILD_NUMBER}" --message "Hi there, Bash!"
 - sh: echo -e "Default \033[42mGreen"
