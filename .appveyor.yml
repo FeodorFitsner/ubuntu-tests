@@ -53,7 +53,7 @@ install:
 - sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
 - pwsh: |
     Write-Host "Something on the first line"
-    ./build-agent-api.ps1
+    #./build-agent-api.ps1
 - appveyor SetVariable --name="bash_var_2" --value="surprise"
 - echo ${test_variable_1}
 - echo ${bash_var_2}
@@ -70,5 +70,5 @@ on_failure:
 
 on_finish:
 - ps: Write-Host 'I''m on_finish script!'
-- ps: Write-Message "I'm problematic on_finish script!"
+#- ps: Write-Message "I'm problematic on_finish script!"
 
