@@ -69,6 +69,6 @@ on_failure:
 - echo On failure script!
 
 on_finish:
-- ps: Write-Host 'I\'m on_finish script!'
-- ps: Write-Message 'I\'m problematic on_finish script!'
+- ps: Write-Host 'I`'m on_finish script!'
+- ps: Write-Message 'I`'m problematic on_finish script!'
 
