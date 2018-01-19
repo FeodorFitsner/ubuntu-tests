@@ -61,3 +61,13 @@ install:
 build: off
 
 test: off
+
+on_success:
+- echo On success script!
+
+on_failure:
+- echo On failure script!
+
+on_finish:
+- ps: Write-Host 'echo On failure script!'
+
