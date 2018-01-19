@@ -49,6 +49,8 @@ install:
 #- stat /tmp
 #- rm /tmp/tmp-*
 #- ls /tmp/ -al
+- pwsh: $env:test_variable_1 = "test_variable_1 secret value!"
+- sh: export bash_var_2=This is bash variable!
 #- sh: appveyor AddMessage --message 'test message from bash 1' --category 'Error' --details "This is some details!"
 #- sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
 - pwsh: |
