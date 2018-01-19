@@ -9,6 +9,7 @@ environment:
 install:
 #- sh: appveyor --version
 - sh: appveyor version
+- appveyor exit
 
 #- sh: ls /tmp -al
 - sh: ls -al
@@ -58,7 +59,6 @@ install:
     #./build-agent-api.ps1
 #- appveyor SetVariable --name="bash_var_2" --value="surprise"
 - echo ${test_variable_1}
-- appveyor exit
 - echo ${bash_var_2}
 
 build: off
