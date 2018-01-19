@@ -17,7 +17,7 @@ install:
 - echo Hi there! This is white text on green background!
 - sh: echo -e "Default \e[49mDefault"
 - ps: |
-    Write-Message "Setting 'aaa' variable in one script" -ForegroundColor Green
+    Write-Host "Setting 'aaa' variable in one script" -ForegroundColor Green
     $env:aaa = 'Hello, World!'
 
 - sh: whoami
