@@ -58,7 +58,7 @@ install:
 - pwsh: |
     Write-Host "Something on the first line"
     #./build-agent-api.ps1
-#- appveyor SetVariable --name="bash_var_2" --value="surprise"
+- appveyor SetVariable --name="bash_var_2" --value="surprise!"
 - echo ${test_variable_1}
 - echo ${bash_var_2}
 
