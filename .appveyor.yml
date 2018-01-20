@@ -15,7 +15,7 @@ install:
 - sh: ls -al
 - sh: appveyor UpdateBuild -version "1.2.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, Bash!"
 - sh: appveyor UpdateBuild --version="1.5.${APPVEYOR_BUILD_NUMBER}" --message="Hi there, Bash in Linux!"
-- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message="Hi there, PowerShell!"
+- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, PowerShell!"
 - sh: printenv
 - sh: echo -e "Default \033[42mGreen"
 - echo Hi there! This is white text on green background!
