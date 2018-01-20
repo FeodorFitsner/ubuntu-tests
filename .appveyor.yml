@@ -7,7 +7,7 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
-- ps: $VerbosePreference = "Continue"
+- ps: Set-Variable -Name "VerbosePreference" -Value "Continue" -Scope Global -Force
 #- sh: appveyor --version
 - sh: appveyor version
 #- appveyor exit
