@@ -13,7 +13,7 @@ install:
     }
     
     $body = @{
-      "name" = "AAAA"
+      "name" = ""
       "value" = "BBBBBBB111"
     }
     
