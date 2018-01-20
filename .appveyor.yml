@@ -16,7 +16,6 @@ install:
 - sh: ls -al
 - sh: appveyor UpdateBuild -version "1.2.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, Bash!"
 - sh: appveyor UpdateBuild --version="1.5.${APPVEYOR_BUILD_NUMBER}" --message="Hi there, Bash in Linux!"
-- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, PowerShell!"
 - sh: printenv
 - sh: echo -e "Default \033[42mGreen"
 - echo Hi there! This is white text on green background!
@@ -44,8 +43,8 @@ install:
 #- sh: ls $HOME
 #- sh: echo "This is Bash script!"
 - npm --version
-#- sh: appveyor AddTest --name "Test Bash A" --framework "NUnit" --fileName "Assembly1.dll" --outcome "Running"
-#- sh: appveyor UpdateTest --name "Test Bash A" --fileName "Assembly1.dll" --outcome "Passed" --duration 1200 --stdOut "This is StdOut" --stdErr "This is StdErr"
+- sh: appveyor AddTest --name "Test Bash A" --framework "NUnit" --fileName "Assembly1.dll" --outcome "Running"
+- sh: appveyor UpdateTest --name "Test Bash A" --fileName "Assembly1.dll" --outcome "Passed" --duration 1200 --stdOut "This is StdOut" --stdErr "This is StdErr"
 #- ps: 'Write-Host "This is run on Windows only: $env:USERPROFILE"'
 #- cmd: 'echo This run on Windows too: %USERPROFILE%'
 #- sh: appveyor PackageArtifacts
@@ -56,14 +55,15 @@ install:
 #- ls /tmp/ -al
 - pwsh: $env:test_variable_1 = "test_variable_1 secret value!"
 - sh: export bash_var_2="This is bash variable!"
-#- sh: appveyor AddMessage --message 'test message from bash 1' --category 'Error' --details "This is some details!"
-#- sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
+- sh: appveyor AddMessage --message 'test message from bash 1' --category 'Error' --details "This is some details!"
+- sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
 - pwsh: |
     Write-Host "Something on the first line"
     #./build-agent-api.ps1
 - appveyor SetVariable --name="bash_var_2" --value="surprise!"
 - echo ${test_variable_1}
 - echo ${bash_var_2}
+- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, PowerShell!"
 
 build: off
 
