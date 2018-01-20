@@ -17,6 +17,7 @@ install:
 - sh: ls -al
 #- sh: appveyor UpdateBuild -version "1.2.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, Bash!"
 #- sh: appveyor UpdateBuild --version="1.5.${APPVEYOR_BUILD_NUMBER}" --message="Hi there, Bash in Linux!"
+- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, PowerShell!"
 - ps: Bump
 - sh: printenv
 - sh: echo -e "Default \033[42mGreen"
@@ -65,7 +66,6 @@ install:
 - appveyor SetVariable --name="bash_var_2" --value="surprise!"
 - echo ${test_variable_1}
 - echo ${bash_var_2}
-- ps: Update-AppVeyorBuild -Version "1.7.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, PowerShell!"
 
 build: off
 
