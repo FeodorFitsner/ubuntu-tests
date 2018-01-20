@@ -11,7 +11,7 @@ install:
 - sh: appveyor version
 #- appveyor exit
 - ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
-- ps: Exit-AppVeyorBuild
+#- ps: Exit-AppVeyorBuild
 
 #- sh: ls /tmp -al
 - sh: ls -al
@@ -56,8 +56,8 @@ install:
 #- ls /tmp/ -al
 - pwsh: $env:test_variable_1 = "test_variable_1 secret value!"
 - sh: export bash_var_2="This is bash variable!"
-- sh: appveyor AddMessage --message 'test message from bash 1' --category 'Error' --details "This is some details!"
-- sh: appveyor AddCompilationMessage --message 'test message from batch 1' --category 'Information' --details "This is some details!" --line 10 --column 1
+- sh: appveyor AddMessage --message='test message from bash 1' --category='Error' --details="This is some details!"
+- ps: Add-AppVeyorCompilationMessage -message 'test message from batch 1' -category 'Information' -details "This is some details!" -line 10 -column 1
 - pwsh: |
     Write-Host "Something on the first line"
     #./build-agent-api.ps1
