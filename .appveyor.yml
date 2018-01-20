@@ -8,6 +8,10 @@ environment:
 
 install:
 - ps: |
+    Write-Host "First line!"
+    ./test.ps1
+    
+- ps: |
     $headers = @{
       "Content-type" = "application/json"
     }
