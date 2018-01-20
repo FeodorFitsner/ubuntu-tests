@@ -10,13 +10,13 @@ install:
 #- sh: appveyor --version
 - sh: appveyor version
 #- appveyor exit
-- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
+#- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
 #- ps: Exit-AppVeyorBuild
 
 #- sh: ls /tmp -al
 - sh: ls -al
-- sh: appveyor UpdateBuild -version "1.2.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, Bash!"
-- sh: appveyor UpdateBuild --version="1.5.${APPVEYOR_BUILD_NUMBER}" --message="Hi there, Bash in Linux!"
+#- sh: appveyor UpdateBuild -version "1.2.${APPVEYOR_BUILD_NUMBER}" -message "Hi there, Bash!"
+#- sh: appveyor UpdateBuild --version="1.5.${APPVEYOR_BUILD_NUMBER}" --message="Hi there, Bash in Linux!"
 - sh: printenv
 - sh: echo -e "Default \033[42mGreen"
 - echo Hi there! This is white text on green background!
