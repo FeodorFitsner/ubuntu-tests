@@ -7,6 +7,17 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
+- ps: |
+    $headers = @{
+      "Content-type" = "application/json"
+    }
+    
+    $body = @{
+      "name" = "AAAA"
+      "value" = "BBBBBBB111"
+    }
+    
+    Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/variables -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 #- ps: Set-Variable -Name "VerbosePreference" -Value "Continue" -Scope Global -Force
 #- sh: appveyor --version
 - sh: appveyor version
