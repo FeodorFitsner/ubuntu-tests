@@ -7,9 +7,9 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
-- ps: |
-    Write-Host "First line!"
-    ./test.ps1
+#- ps: |
+#    Write-Host "First line!"
+#    ./test.ps1
     
 - ps: |
     $headers = @{
