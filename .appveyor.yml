@@ -91,7 +91,7 @@ on_success:
 - echo On success script!
 
 on_failure:
-- echo On failure script!
+- echo On failure script!!
 
 on_finish:
 - ps: Write-Host 'I''m on_finish script!'
