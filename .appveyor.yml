@@ -11,20 +11,21 @@ install:
 #    Write-Host "First line!"
 #    ./test.ps1
     
-- ps: |
-    $headers = @{
-      "Content-type" = "application/json"
-    }
-    
-    $body = @{
-      "name" = "AAA"
-      "value" = "BBBBBBB111"
-    }
-    
-    Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/variables -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
+#- ps: |
+#    $headers = @{
+#      "Content-type" = "application/json"
+#    }
+#    
+#    $body = @{
+#      "name" = "AAA"
+#      "value" = "BBBBBBB111"
+#    }
+#    
+#    Invoke-WebRequest -Method POST -Uri $env:APPVEYOR_API_URL/api/build/variables -Headers $headers -Body (ConvertTo-Json $body -Depth 6)
 #- ps: Set-Variable -Name "VerbosePreference" -Value "Continue" -Scope Global -Force
 #- sh: appveyor --version
 - sh: appveyor version
+- sh: appveyor PushArtifact test.js
 #- appveyor exit
 #- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
 #- ps: Exit-AppVeyorBuild
