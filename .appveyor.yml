@@ -91,7 +91,7 @@ test: off
 
 artifacts:
 - path: README.md
-#- path: test
+- path: test
 
 on_success:
 - echo On success script!
