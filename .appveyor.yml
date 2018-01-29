@@ -9,6 +9,7 @@ environment:
 install:
 - ps: Write-Host "Привет, АппВейер!" -ForegroundColor Yellow
 - sh: echo "А это ранается Bash!"
+- ps: $env:APPVEYOR_API_URL
 #- ps: |
 #    Write-Host "First line!"
 #    ./test.ps1
