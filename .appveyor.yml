@@ -1,6 +1,6 @@
 image: ubuntu
 
-shallow_clone: true
+#shallow_clone: true
 
 environment:
   myvar1: Hello, world!
@@ -31,7 +31,7 @@ install:
 - pwsh: appveyor version
 - sh: appveyor PushArtifact test.js
 - ps: Push-AppVeyorArtifact -Path build-agent-api.ps1
-#- appveyor exit
+- appveyor exit
 #- ps: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
 #- ps: Exit-AppVeyorBuild
 
