@@ -34,6 +34,7 @@ install:
 - sh: appveyor PushArtifact test.js
 - pwsh: Push-AppVeyorArtifact -Path build-agent-api.ps1
 - pwsh: Start-FileDownload 'https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0' -FileName wxWidgets.7z
+- appveyor DownloadFile https://dl.dropboxusercontent.com/s/c1by0uulee6g8th/wxWidgets.7z?dl=0 -FileName wxWidgets.7z
 #- ps: Exit-AppVeyorBuild
 
 #- sh: ls /tmp -al
