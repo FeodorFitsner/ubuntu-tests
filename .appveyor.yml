@@ -29,6 +29,7 @@ install:
 #- ps: Set-Variable -Name "VerbosePreference" -Value "Continue" -Scope Global -Force
 #- sh: appveyor --version
 - pwsh: appveyor version
+- appveyor version
 - sh: appveyor PushArtifact test.js
 - pwsh: Push-AppVeyorArtifact -Path build-agent-api.ps1
 - appveyor exit
