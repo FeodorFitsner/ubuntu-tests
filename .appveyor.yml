@@ -7,7 +7,8 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
-- ps: Write-Host "Привет, АппВейер!" -ForegroundColor Yellow
+- ps: Write-Host "Привет, Крведко!" -ForegroundColor Yellow
+- pwsh: Write-Host "こんにちは、エビ" -ForegroundColor Magenta
 - ps: $env:APPVEYOR_API_URL
 #- sh: echo "А это ранается Bash!"
 #- ps: |
