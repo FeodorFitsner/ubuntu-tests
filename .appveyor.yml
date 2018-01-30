@@ -7,7 +7,7 @@ environment:
   ANOTHER_VAR: Test!!!
 
 install:
-- ps: Write-Host "Привет, Креведко!" -ForegroundColor Yellow
+- pwsh: Write-Host "Привет, Креведко!" -ForegroundColor Yellow
 - pwsh: Write-Host "こんにちは、エビ" -ForegroundColor Magenta
 - ps: $env:APPVEYOR_API_URL
 - ps: 'Get-ChildItem env:'
