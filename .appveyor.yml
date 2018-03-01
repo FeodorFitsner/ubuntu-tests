@@ -16,6 +16,7 @@ install:
 - pwsh: Write-Host "Привет, Креведко!" -ForegroundColor Yellow
 - pwsh: Write-Host "こんにちは、エビ" -ForegroundColor Magenta
 - ps: $env:APPVEYOR_API_URL
+- npm install node-pty
 - ps: 'Get-ChildItem env:'
 #- sh: echo "А это ранается Bash!"
 #- ps: |
