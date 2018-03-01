@@ -6,6 +6,12 @@ environment:
   myvar1: Hello, world!
   ANOTHER_VAR: Test!!!
 
+cache:
+- node_modules
+
+services:
+- docker
+
 install:
 - pwsh: Write-Host "Привет, Креведко!" -ForegroundColor Yellow
 - pwsh: Write-Host "こんにちは、エビ" -ForegroundColor Magenta
@@ -91,11 +97,13 @@ install:
 #- appveyor SetVariable --name="bash_var_2" --value="surprise!"
 #- echo ${test_variable_1}
 #- echo ${bash_var_2}
-- appveyor exit
+#- appveyor exit
+
+test_script:
+- sh: docker info
+- sh: docker run hello-world
 
 build: off
-
-test: off
 
 artifacts:
 - path: README.md
